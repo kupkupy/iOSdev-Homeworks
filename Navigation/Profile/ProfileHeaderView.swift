@@ -115,7 +115,7 @@ class ProfileHeaderView: UIView {
             statusLabel.text = statusText
         }
         
-        UIButton.animate(withDuration: 0.2) {
+        UIView.animate(withDuration: 0.7) {
             self.layoutIfNeeded()
         } completion: { _ in
             self.isExpanded.toggle()
