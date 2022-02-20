@@ -7,38 +7,52 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
-
+final class ProfileViewController: UIViewController {
+    
     private lazy var profileHeaderView: ProfileHeaderView = {
-        let profileHeaderView = ProfileHeaderView()
-        profileHeaderView.translatesAutoresizingMaskIntoConstraints = false
-        return profileHeaderView
+        let view = ProfileHeaderView(frame: .zero)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
+    private lazy var transitionButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .systemPink
+        button.setTitle("Перейти", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    private var heightConstraint: NSLayoutConstraint?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .systemBackground
-        self.view.addSubview(profileHeaderView)
-        self.setupNavigationBar()
-        self.activateConstraintsForHeaderView()
+        self.setupNaigationBar()
+        self.setupView()
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        profileHeaderView.frame = self.view.frame
-    }
-
-    private func setupNavigationBar() {
+    private func setupNaigationBar() {
         self.navigationController?.navigationBar.prefersLargeTitles = false
         self.navigationItem.title = "Profile"
-        self.navigationController?.navigationBar.backgroundColor = .white
     }
     
-    private func activateConstraintsForHeaderView() {
-        self.profileHeaderView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        self.profileHeaderView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        self.profileHeaderView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        self.profileHeaderView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
+    private func setupView() {
+        self.view.addSubview(self.profileHeaderView)
+        self.view.addSubview(transitionButton)
+        self.view.backgroundColor = .white
+        
+        let bottomTransitionButton = self.transitionButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
+        let leadingTransitionButton = self.transitionButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor)
+        let trailingTransitionButton = self.transitionButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+        
+        let topConstraint = self.profileHeaderView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor)
+        let leadingConstraint = self.profileHeaderView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor)
+        let trailingConstraint = self.profileHeaderView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+        self.heightConstraint = self.profileHeaderView.heightAnchor.constraint(equalToConstant: 220)
+        
+        NSLayoutConstraint.activate([
+            topConstraint, leadingConstraint, trailingConstraint, self.heightConstraint, bottomTransitionButton, leadingTransitionButton, trailingTransitionButton
+        ].compactMap({ $0 }))
     }
-
 }
+

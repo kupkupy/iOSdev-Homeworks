@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0941B50727C25C8E002540B9 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0941B50627C25C8E002540B9 /* PostViewController.swift */; };
 		095BA39E27B529EC00C3E74F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095BA39D27B529EC00C3E74F /* AppDelegate.swift */; };
 		095BA3A027B529EC00C3E74F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095BA39F27B529EC00C3E74F /* SceneDelegate.swift */; };
 		095BA3A227B529EC00C3E74F /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095BA3A127B529EC00C3E74F /* FeedViewController.swift */; };
@@ -14,11 +15,11 @@
 		095BA3AA27B529EE00C3E74F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 095BA3A827B529EE00C3E74F /* LaunchScreen.storyboard */; };
 		0998AF3027BAF83800F87B0F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0998AF2F27BAF83800F87B0F /* ProfileViewController.swift */; };
 		0998AF3227BAF86100F87B0F /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0998AF3127BAF86100F87B0F /* ProfileHeaderView.swift */; };
-		0998AF3427BAF86D00F87B0F /* ProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0998AF3327BAF86D00F87B0F /* ProfileHeaderView.xib */; };
 		0998AF3627BAF8FE00F87B0F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0998AF3527BAF8FE00F87B0F /* MainTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0941B50627C25C8E002540B9 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		095BA39A27B529EC00C3E74F /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		095BA39D27B529EC00C3E74F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		095BA39F27B529EC00C3E74F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,7 +29,6 @@
 		095BA3AB27B529EE00C3E74F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0998AF2F27BAF83800F87B0F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		0998AF3127BAF86100F87B0F /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
-		0998AF3327BAF86D00F87B0F /* ProfileHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeaderView.xib; sourceTree = "<group>"; };
 		0998AF3527BAF8FE00F87B0F /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,6 +67,7 @@
 				095BA39F27B529EC00C3E74F /* SceneDelegate.swift */,
 				0998AF3527BAF8FE00F87B0F /* MainTabBarController.swift */,
 				095BA3A127B529EC00C3E74F /* FeedViewController.swift */,
+				0941B50627C25C8E002540B9 /* PostViewController.swift */,
 				095BA3A627B529EE00C3E74F /* Assets.xcassets */,
 				095BA3A827B529EE00C3E74F /* LaunchScreen.storyboard */,
 				095BA3AB27B529EE00C3E74F /* Info.plist */,
@@ -79,7 +80,6 @@
 			children = (
 				0998AF2F27BAF83800F87B0F /* ProfileViewController.swift */,
 				0998AF3127BAF86100F87B0F /* ProfileHeaderView.swift */,
-				0998AF3327BAF86D00F87B0F /* ProfileHeaderView.xib */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -143,7 +143,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				095BA3AA27B529EE00C3E74F /* LaunchScreen.storyboard in Resources */,
-				0998AF3427BAF86D00F87B0F /* ProfileHeaderView.xib in Resources */,
 				095BA3A727B529EE00C3E74F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -157,6 +156,7 @@
 			files = (
 				095BA3A227B529EC00C3E74F /* FeedViewController.swift in Sources */,
 				095BA39E27B529EC00C3E74F /* AppDelegate.swift in Sources */,
+				0941B50727C25C8E002540B9 /* PostViewController.swift in Sources */,
 				0998AF3627BAF8FE00F87B0F /* MainTabBarController.swift in Sources */,
 				0998AF3227BAF86100F87B0F /* ProfileHeaderView.swift in Sources */,
 				0998AF3027BAF83800F87B0F /* ProfileViewController.swift in Sources */,
