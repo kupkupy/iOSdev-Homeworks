@@ -71,6 +71,20 @@ class LogInViewController: UIViewController {
         self.setupConstraints()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let nc = NotificationCenter.default
+        nc.addObserver(self, selector: #selector(kbdShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        nc.addObserver(self, selector: #selector(kbdHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        let nc = NotificationCenter.default
+        nc.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        nc.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
     private func setupView() {
         self.view.addSubview(scrollView)
         self.scrollView.addSubview(contentView)
@@ -149,6 +163,18 @@ class LogInViewController: UIViewController {
     @objc func logInTapped() {
         let profileVC = ProfileViewController()
         self.navigationController?.pushViewController(profileVC, animated: true)
+    }
+    
+    @objc private func kbdShow(notification: NSNotification) {
+        if let kbdSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            scrollView.contentInset.bottom = kbdSize.height
+            scrollView.verticalScrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: kbdSize.height, right: 0)
+        }
+    }
+    
+    @objc private func kbdHide() {
+        scrollView.contentInset.bottom = .zero
+        scrollView.verticalScrollIndicatorInsets = .zero
     }
 }
 
