@@ -163,6 +163,19 @@ class LogInViewController: UIViewController {
     @objc func logInTapped() {
         let profileVC = ProfileViewController()
         self.navigationController?.pushViewController(profileVC, animated: true)
+        
+        switch logInButton.state {
+        case [.normal]:
+            logInButton.alpha = 1
+        case .selected:
+            logInButton.alpha = 0.8
+        case .highlighted:
+            logInButton.alpha = 0.8
+        case .disabled:
+            logInButton.alpha = 0.8
+        default:
+            break
+        }
     }
     
     @objc private func kbdShow(notification: NSNotification) {
