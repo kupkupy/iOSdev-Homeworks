@@ -105,23 +105,20 @@ class ProfileHeaderView: UIView {
         self.spacingStatusButton.constant = self.isExpanded ? 84 : 34
         
         
-        if isExpanded {
-            statusChangeButton.setTitle("Set status", for: .normal)
-            self.statusTextField.isHidden = false
-            
-        } else {
-            statusChangeButton.setTitle("Show status", for: .normal)
-            self.statusTextField.isHidden = true
-            statusLabel.text = statusText
-        }
-        
         UIView.animate(withDuration: 0.7) {
             self.layoutIfNeeded()
+            if self.isExpanded {
+                self.statusChangeButton.setTitle("Set status", for: .normal)
+                self.statusTextField.isHidden = false
+                
+            } else {
+                self.statusChangeButton.setTitle("Show status", for: .normal)
+                self.statusTextField.isHidden = true
+                self.statusLabel.text = self.statusText
+            }
         } completion: { _ in
             self.isExpanded.toggle()
         }
-        
-        UITextField.animate(withDuration: 0.7, animations: { self.layoutIfNeeded() }, completion: nil)
 
         self.statusTextField.delegate = self
     }
