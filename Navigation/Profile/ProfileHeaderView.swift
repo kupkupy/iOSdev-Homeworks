@@ -105,7 +105,7 @@ class ProfileHeaderView: UIView {
         self.spacingStatusButton.constant = self.isExpanded ? 84 : 34
         
         
-        UIView.animate(withDuration: 0.7) {
+        UIView.animate(withDuration: 0.3) {
             self.layoutIfNeeded()
             if self.isExpanded {
                 self.statusChangeButton.setTitle("Set status", for: .normal)
