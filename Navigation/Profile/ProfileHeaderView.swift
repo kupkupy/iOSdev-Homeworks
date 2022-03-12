@@ -82,6 +82,7 @@ class ProfileHeaderView: UIView {
     
     private func setupStatusTextField() {
         statusTextField.isHidden = true
+        statusTextField.alpha = 0
         statusTextField.returnKeyType = .continue
         statusTextField.clearButtonMode = .always
         statusTextField.autocapitalizationType = .words
@@ -110,13 +111,18 @@ class ProfileHeaderView: UIView {
             if self.isExpanded {
                 self.statusChangeButton.setTitle("Set status", for: .normal)
                 self.statusTextField.isHidden = false
+                self.statusTextField.alpha = 1
                 
             } else {
                 self.statusChangeButton.setTitle("Show status", for: .normal)
-                self.statusTextField.isHidden = true
+                
                 self.statusLabel.text = self.statusText
+                self.statusTextField.alpha = 0
             }
         } completion: { _ in
+            if !self.isExpanded {
+                self.statusTextField.isHidden = true
+            }
             self.isExpanded.toggle()
         }
 
