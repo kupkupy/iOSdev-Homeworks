@@ -127,6 +127,7 @@ class ProfileHeaderView: UIView {
         }
 
         self.statusTextField.delegate = self
+        self.endEditing(true)
     }
     
     @objc private func statusTextChanged(_ textField: UITextField) {
