@@ -28,34 +28,12 @@ final class ProfileViewController: UIViewController {
     
     var posts = [post1, post2, post3, post4]
     
-    //var photos = [UIImage(named: "1"), UIImage(named: "2"), UIImage(named: "3"), UIImage(named: "4")]
-    
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
-    /*
-    private lazy var layout: UICollectionViewFlowLayout = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.minimumInteritemSpacing = 12
-        layout.minimumLineSpacing = 8
-        return layout
-    }()
-    
-    private lazy var photosCollectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: self.layout)
-        collectionView.backgroundColor = .white
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.register(PhotosTableViewCell.self, forCellWithReuseIdentifier: "PhotosCell")
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "DefaultCell")
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        return collectionView
-    }()
-    */
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,17 +80,6 @@ extension ProfileViewController: UITableViewDataSource {
             return cell
         }
     }
-    /*
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.row {
-        case 0:
-            return 150
-        default:
-            tableView.rowHeight = UITableView.automaticDimension
-            return tableView.rowHeight
-        }
-    }
-    */
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -133,10 +100,6 @@ extension ProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
        return 270
     }
-    /*
-    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-    */
+   
 }
 
