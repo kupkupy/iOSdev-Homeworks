@@ -8,7 +8,7 @@
 import UIKit
 
 class LogInViewController: UIViewController {
-
+    
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.backgroundColor = .white
@@ -69,6 +69,10 @@ class LogInViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         self.setupView()
         self.setupConstraints()
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+
     }
     
     private func setupView() {
@@ -90,7 +94,7 @@ class LogInViewController: UIViewController {
             textField.leftViewMode = .always
             textField.layer.borderColor = UIColor.lightGray.cgColor
             textField.layer.borderWidth = 0.5
-            textField.returnKeyType = .done
+            textField.returnKeyType = .continue
             textField.delegate = self
             
             switch index {
@@ -149,6 +153,31 @@ class LogInViewController: UIViewController {
     @objc func logInTapped() {
         let profileVC = ProfileViewController()
         self.navigationController?.pushViewController(profileVC, animated: true)
+        
+        switch logInButton.state {
+        case .normal:
+            logInButton.alpha = 1
+        case .selected:
+            logInButton.alpha = 0.8
+        case .highlighted:
+            logInButton.alpha = 0.8
+        case .disabled:
+            logInButton.alpha = 0.8
+        default:
+            break
+        }
+    }
+    
+    @objc func adjustForKeyboard (notification: Notification){
+        if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboardRectangle.height
+                
+            let contentOffset: CGPoint = notification.name == UIResponder.keyboardWillHideNotification
+            ? .zero
+            : CGPoint(x: 0, y: keyboardHeight / 6)
+            self.scrollView.contentOffset = contentOffset
+        }
     }
 }
 
