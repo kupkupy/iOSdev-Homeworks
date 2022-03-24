@@ -72,7 +72,7 @@ class FeedViewController: UIViewController {
     
     @objc func tapButton() {
         let postVC = PostViewController()
-        self.navigationController?.pushViewController(postVC, animated: true)
+        navigationController?.pushViewController(postVC, animated: true)
     }
 }
 
