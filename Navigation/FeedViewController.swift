@@ -38,19 +38,16 @@ class FeedViewController: UIViewController {
         
         let buttons = [firstButton, secondButton]
         buttons.enumerated().forEach({ (index, button) in
+            button.layer.cornerRadius = 12
+            button.setTitleColor(.white, for: .normal)
+            button.addTarget(self, action: #selector(tapButton), for: .touchUpInside)
             switch index {
             case 0:
                 button.setTitle("Open post", for: .normal)
-                button.layer.cornerRadius = 12
                 button.backgroundColor = .systemYellow
-                button.setTitleColor(.white, for: .normal)
-                button.addTarget(self, action: #selector(tapButton), for: .touchUpInside)
             case 1:
                 button.setTitle("Read more", for: .normal)
-                button.layer.cornerRadius = 12
                 button.backgroundColor = .systemPurple
-                button.setTitleColor(.white, for: .normal)
-                button.addTarget(self, action: #selector(tapButton), for: .touchUpInside)
             default:
                 break
             }
