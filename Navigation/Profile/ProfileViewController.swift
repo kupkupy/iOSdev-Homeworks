@@ -35,11 +35,13 @@ final class ProfileViewController: UIViewController {
         return tableView
     }()
     
+    private let tapGestureRecognizer = UITapGestureRecognizer()
+    private var isExpanded = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
         activateConstraints()
-        
     }
     
     func setupTableView() {
